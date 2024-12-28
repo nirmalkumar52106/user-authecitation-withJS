@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>User Profile</h1>
+
+    <script>
+
+        async function GetEmployees(){
+
+            userid = localStorage.getItem("userid")
+         
+          dataurl = await fetch(`http://localhost:3000/employees/${userid}`)
+          updateddata = await dataurl.json()
+  
+      
+              document.write(`
+              <div style="background-color: black;color:white;
+      margin:20px;padding:20px;">
+
+      <h3>Employee id = ${updateddata.id} </h3>
+      <h2>Employee username = ${updateddata.username} </h2>
+      <h1>Employe Name = ${updateddata.empname}</h1>
+      <h2>Employe Time = ${updateddata.time}</</h2>
+      <h3>Employe Date = ${updateddata.date}</</h3>
+      <h2>Employe contact = <a href="tel:${updateddata.mobile}">  ${updateddata.mobile} </a></</h2>
+      <img style="width:100px;height:100px;border-radius:50%" src=${updateddata.userimage}>
+      </div>
+              `)
+          }
+  
+  
+  
+          
+  
+          GetEmployees()
+      </script>
+      
+    
+</body>
+</html>

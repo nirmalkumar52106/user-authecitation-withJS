@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{margin: 0;padding: 0;}
+                .header-wrapper{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: black;
+          color: white;
+          padding: 12px 70px;
+                }
+                .header-wrapper .menu ul li{
+                    display: inline-block;
+                    padding: 10px 40px;
+                    margin: 8px;
+                   border-radius: 7px;
+                   background-color: rgba(255, 255, 255, 0.885);
+                   color: rgba(18, 18, 18, 0.78);
+                   font-weight: bold;
+                }
+            </style>
+                <div class="header-wrapper">
+                    <div class="logo">
+                        <h2>Api</h2>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <a href="./home.html"><li>Home</li></a>
+                            <a href="./deletedata.html"><li>Delete Employees</li></a>
+                            <a href="./edit.html"><li>Edit Employees</li></a>
+                            <a href="./getdata.html"><li>All Employees</li></a>
+                            <a href="./postdata.html"><li>Add Employees</li></a>
+                        </ul>
+        
+                    </div>
+        
+                </div>
+        
+    <input placeholder="enter your id" id="delete"/>
+    <button onclick="Delete()">Delete</button>
+
+    <script>
+
+        async function Delete(){
+            delelteid = document.getElementById("delete").value;
+
+            if(delelteid){
+
+                apiurl = await fetch(`http://localhost:3000/employees/${delelteid}`,{
+                    method : "DELETE"
+                }).then(()=>{
+                    alert("Employe remove form list...")
+                }).catch(()=>{
+                    alert("something went wrong...")
+                })
+
+              
+            }else{
+                alert("please select any id..")
+            }
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

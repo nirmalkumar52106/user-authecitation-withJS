@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        *{margin: 0;padding: 0;}
+                .header-wrapper{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: black;
+          color: white;
+          padding: 12px 70px;
+                }
+                .header-wrapper .menu ul li{
+                    display: inline-block;
+                    padding: 10px 40px;
+                    margin: 8px;
+                   border-radius: 7px;
+                   background-color: rgba(255, 255, 255, 0.885);
+                   color: rgba(18, 18, 18, 0.78);
+                   font-weight: bold;
+                }
+            </style>
+                <div class="header-wrapper">
+                    <div class="logo">
+                        <h2>Api</h2>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <a href="./home.html"><li>Home</li></a>
+                            <a href="./deletedata.html"><li>Delete Employees</li></a>
+                            <a href="./edit.html"><li>Edit Employees</li></a>
+                            <a href="./getdata.html"><li>All Employees</li></a>
+                            <a href="./postdata.html"><li>Add Employees</li></a>
+                        </ul>
+        
+                    </div>
+        
+                </div>
+        
+    
+
+    <script>
+
+      async function GetEmployees(){
+
+        dataurl = await fetch("http://localhost:3000/employees")
+        updateddata = await dataurl.json()
+
+        for(i=0;i<updateddata.length;i++){
+            document.write(`
+            <div style="background-color: black;color:white;
+    margin:20px;padding:20px;">
+    ${i+1}..
+    <h3>Employee id = ${updateddata[i].id} </h3>
+    <h1>Employe Name = ${updateddata[i].empname}</h1>
+    <h2>Employe Time = ${updateddata[i].time}</</h2>
+    <h3>Employe Date = ${updateddata[i].date}</</h3>
+    <h2>Employe contact = <a href="tel:${updateddata[i].mobile}">  ${updateddata[i].mobile} </a></</h2>
+    <img style="width:100px;height:100px;border-radius:50%" src=${updateddata[i].userimage}>
+    </div>
+            `)
+        }
+
+
+
+        }
+
+        GetEmployees()
+    </script>
+    
+</body>
+</html>

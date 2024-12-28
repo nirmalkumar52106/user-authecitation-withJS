@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input placeholder="enter your username" id="username"/>
+    <input placeholder="enter your password" id="password"/>
+    <button onclick="Login()">Login</button>
+
+    <script>
+
+        async function Login(){
+            usernamevalue = document.getElementById("username").value;
+            passwordvalue = document.getElementById("password").value;
+
+            apiurl = await fetch("http://localhost:3000/employees")
+            apidata = await apiurl.json()
+           
+            userfind = apidata.find((items)=>items.username==usernamevalue && items.password==passwordvalue)
+            if(userfind){
+                alert("user login successfulyy...")
+                localStorage.setItem("id" , userfind.id)
+                setTimeout(()=>{
+                    window.location.href = "./userMainHome.html"
+                },1000)
+            }else{
+                alert("user not found")
+                setTimeout(()=>{
+window.location.reload()
+                },2000)
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

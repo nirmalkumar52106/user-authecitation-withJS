@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <input placeholder="enter username...." id="username" />
+        <input placeholder="enter password..." id="password" />
+        <button onclick="Singup()">Signup</button>
+
+        <script>
+
+        async function Singup(){
+            usernamevalue = document.getElementById("username").value;
+            passwordvalue = document.getElementById("password").value;
+
+            userobject = {"username" : usernamevalue , "password" : passwordvalue,"empname" : "" , "time" : "" , "date" : "" , "mobile" :  ""}
+            apiurl = await fetch("http://localhost:3000/employees",{
+                method:"POST",
+                body:JSON.stringify(userobject)
+            }).then(()=>{
+                alert("User Singup successfully...")
+                setTimeout(()=>{
+    window.location.reload()
+                },1000)
+            }).catch(()=>{
+                alert("please try again...")
+            })
+        }
+
+
+    </script>
+
+    </body>
+</html>

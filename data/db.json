@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": "1dc7",
+      "username": "nirmal",
+      "password": "123",
+      "empname": "",
+      "time": "",
+      "date": "",
+      "mobile": ""
+    },
+    {
+      "id": "6ff2",
+      "username": "nirmal12",
+      "password": "12334",
+      "empname": "",
+      "time": "",
+      "date": "",
+      "mobile": ""
+    },
+    {
+      "id": "7c28",
+      "username": "admin",
+      "password": "111",
+      "empname": "",
+      "time": "",
+      "date": "",
+      "mobile": ""
+    },
+    {
+      "id": "7725",
+      "username": "narender",
+      "password": "12345",
+      "empname": "",
+      "time": "",
+      "date": "",
+      "mobile": ""
+    }
+  ]
+}
